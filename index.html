@@ -4,9 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CFHED — Confederation for Holistic Education & Development</title>
+<meta name="description" content="Confederation for Holistic Education & Development — a national movement empowering schools, colleges, universities and coaching institutes across India with holistic, future-ready education.">
+<meta name="theme-color" content="#0b1f4d">
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assests/cfhed-logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assests/cfhed-logo.png">
+<link rel="shortcut icon" type="image/png" href="assests/cfhed-logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assests/cfhed-logo.png">
+<link rel="apple-touch-icon" href="assests/cfhed-logo.png">
+<!-- Open Graph -->
+<meta property="og:title" content="CFHED — Confederation for Holistic Education & Development">
+<meta property="og:description" content="A national movement empowering schools, colleges, universities and coaching institutes across India.">
+<meta property="og:image" content="assests/cfhed-logo.png">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0b1f4d;
@@ -23,9 +36,7 @@
   }
 
   *{box-sizing:border-box; margin:0; padding:0}
-
   html{scroll-behavior:smooth}
-
   body{
     font-family:'Inter', sans-serif;
     background:var(--cream);
@@ -34,19 +45,15 @@
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
-
-  /* Paper texture overlay */
   body::before{
     content:"";
-    position:fixed;
-    inset:0;
+    position:fixed; inset:0;
     background-image:
       radial-gradient(circle at 20% 30%, rgba(232,163,34,.04) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(11,31,77,.03) 0%, transparent 50%);
     pointer-events:none;
     z-index:1;
   }
-
   .grain{
     position:fixed; inset:0;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .08 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
@@ -80,55 +87,91 @@
     flex-wrap:wrap; gap:12px;
   }
   .ribbon span{display:inline-flex; align-items:center; gap:8px}
-  .ribbon .dot{width:4px; height:4px; background:var(--gold); border-radius:50%}
+  .ribbon .dot{width:4px; height:4px; background:var(--gold); border-radius:50%; flex-shrink:0}
+  .ribbon .pills{display:inline-flex; gap:8px; flex-wrap:wrap; align-items:center}
 
   /* === NAV === */
   nav{
-    background:var(--cream);
-    padding:22px 0;
+    padding:18px 0;
     border-bottom:1px solid var(--line);
     position:sticky; top:0; z-index:50;
-    backdrop-filter:blur(8px);
-    background:rgba(251,247,238,.92);
+    backdrop-filter:blur(10px);
+    background:rgba(251,247,238,.94);
   }
-  nav .container{display:flex; align-items:center; justify-content:space-between}
+  nav .container{display:flex; align-items:center; justify-content:space-between; gap:24px}
   .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--navy)}
-  .brand-seal{
-    width:48px; height:48px; border-radius:50%;
-    background:radial-gradient(circle, var(--gold) 0%, var(--gold-bright) 70%);
-    display:grid; place-items:center;
-    box-shadow:0 0 0 2px var(--navy), 0 0 0 3px var(--gold);
-    position:relative;
+  .brand-logo{
+    width:52px; height:52px;
+    flex-shrink:0;
+    display:block;
   }
-  .brand-seal svg{width:24px; height:24px; fill:var(--navy)}
+  .brand-logo img{
+    width:100%; height:100%;
+    object-fit:contain;
+    display:block;
+  }
   .brand-text{display:flex; flex-direction:column; line-height:1}
   .brand-text b{font-family:'Fraunces', serif; font-size:22px; font-weight:700; letter-spacing:.02em}
-  .brand-text small{font-size:10px; letter-spacing:.25em; color:var(--muted); margin-top:4px}
+  .brand-text small{font-size:10px; letter-spacing:.25em; color:var(--muted); margin-top:5px}
 
-  .nav-links{display:flex; gap:36px; align-items:center}
+  .nav-links{display:flex; gap:32px; align-items:center}
   .nav-links a{
     text-decoration:none; color:var(--navy);
-    font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
     position:relative; padding:6px 0;
+    transition:color .25s;
   }
   .nav-links a::after{
     content:""; position:absolute; left:0; bottom:0;
     width:0; height:1px; background:var(--gold);
     transition:width .3s ease;
   }
+  .nav-links a:hover{color:var(--navy-deep)}
   .nav-links a:hover::after{width:100%}
+
   .cta-join{
-    background:var(--navy); color:var(--cream);
-    padding:12px 22px; font-size:12px; letter-spacing:.18em;
-    border-radius:999px; transition:all .3s;
+    background:var(--gold);
+    color:var(--navy) !important;
+    padding:12px 22px;
+    font-size:12px;
+    letter-spacing:.16em;
+    font-weight:700;
+    border-radius:999px;
+    transition:all .3s;
+    box-shadow:0 4px 14px -4px rgba(232,163,34,.5);
   }
-  .cta-join:hover{background:var(--gold); color:var(--navy)}
-  .cta-join::after{display:none}
+  .cta-join:hover{
+    background:var(--navy);
+    color:var(--gold) !important;
+    transform:translateY(-1px);
+    box-shadow:0 6px 18px -4px rgba(11,31,77,.4);
+  }
+  .cta-join::after{display:none !important}
+
+  /* Mobile menu toggle */
+  .mobile-toggle{
+    display:none;
+    background:none; border:none;
+    width:40px; height:40px;
+    flex-direction:column;
+    justify-content:center; align-items:center;
+    gap:5px;
+    cursor:pointer;
+    padding:0;
+  }
+  .mobile-toggle span{
+    width:22px; height:2px;
+    background:var(--navy);
+    transition:all .3s;
+  }
+  .mobile-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mobile-toggle.active span:nth-child(2){opacity:0}
+  .mobile-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
   /* === HERO === */
   .hero{
     position:relative;
-    padding:90px 0 120px;
+    padding:90px 0 110px;
     overflow:hidden;
   }
   .hero::before{
@@ -160,13 +203,13 @@
     color:var(--navy); font-weight:600;
     margin-bottom:32px;
   }
-  .eyebrow .line{width:40px; height:1px; background:var(--gold)}
+  .eyebrow .line{width:40px; height:1px; background:var(--gold); flex-shrink:0}
 
   h1.display{
     font-family:'Fraunces', serif;
     font-weight:400;
-    font-size:clamp(48px, 6.2vw, 92px);
-    line-height:.98;
+    font-size:clamp(42px, 6vw, 92px);
+    line-height:1;
     letter-spacing:-.02em;
     color:var(--navy);
     margin-bottom:28px;
@@ -186,7 +229,6 @@
     transform:scaleX(.3);
     transform-origin:left;
   }
-
   .lede{
     font-family:'Cormorant Garamond', serif;
     font-size:22px;
@@ -196,16 +238,15 @@
     margin-bottom:40px;
     max-width:540px;
   }
-
   .hero-actions{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
   .btn-primary{
     background:var(--navy);
     color:var(--cream);
-    padding:18px 34px;
+    padding:18px 32px;
     border:none;
     font-family:'Inter', sans-serif;
     font-size:13px;
-    letter-spacing:.2em;
+    letter-spacing:.18em;
     text-transform:uppercase;
     font-weight:600;
     cursor:pointer;
@@ -216,12 +257,11 @@
   }
   .btn-primary:hover{background:var(--gold); color:var(--navy); transform:translateY(-2px)}
   .btn-primary svg{width:14px; height:14px}
-
   .btn-ghost{
     color:var(--navy);
     padding:18px 0;
     font-size:13px;
-    letter-spacing:.2em;
+    letter-spacing:.18em;
     text-transform:uppercase;
     font-weight:600;
     text-decoration:none;
@@ -230,7 +270,7 @@
   }
   .btn-ghost:hover{color:var(--gold); border-color:var(--gold)}
 
-  /* Hero visual */
+  /* Hero visual - now uses the actual logo */
   .hero-visual{
     position:relative;
     aspect-ratio:4/5;
@@ -251,6 +291,7 @@
     inset:20px;
     border:1px dashed rgba(232,163,34,.4);
     border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    pointer-events:none;
   }
   .seal-content{
     position:absolute;
@@ -259,17 +300,22 @@
     align-items:center; justify-content:center;
     color:var(--cream);
     text-align:center;
-    padding:60px 40px;
+    padding:50px 36px;
   }
-  .seal-crest{
-    width:90px; height:90px;
-    background:var(--gold);
+  .seal-logo{
+    width:160px; height:160px;
     border-radius:50%;
-    display:grid; place-items:center;
-    margin-bottom:24px;
-    box-shadow:0 0 0 2px var(--navy), 0 0 0 4px var(--gold-soft), inset 0 0 0 1px rgba(255,255,255,.3);
+    display:block;
+    margin-bottom:22px;
+    box-shadow:0 0 0 3px var(--gold), 0 0 0 8px rgba(232,163,34,.2), 0 10px 30px rgba(0,0,0,.3);
+    overflow:hidden;
+    background:var(--cream);
   }
-  .seal-crest svg{width:42px; height:42px; fill:var(--navy)}
+  .seal-logo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
   .seal-content .label{
     font-size:10px; letter-spacing:.4em; color:var(--gold-soft);
     text-transform:uppercase; margin-bottom:12px;
@@ -277,7 +323,7 @@
   .seal-content h3{
     font-family:'Fraunces', serif;
     font-weight:400;
-    font-size:34px;
+    font-size:30px;
     line-height:1.05;
     margin-bottom:18px;
   }
@@ -285,29 +331,29 @@
   .seal-content .quote{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    font-size:15px;
+    font-size:14px;
     color:var(--gold-soft);
     max-width:240px;
     border-top:1px solid rgba(232,163,34,.3);
-    padding-top:18px; margin-top:8px;
+    padding-top:16px; margin-top:6px;
   }
-
   .hero-stars{
     position:absolute;
     top:-20px; right:-20px;
-    width:80px; height:80px;
+    width:84px; height:84px;
     background:var(--gold);
     border-radius:50%;
     display:grid; place-items:center;
     color:var(--navy);
     font-family:'Fraunces', serif;
     font-style:italic;
-    font-size:13px;
+    font-size:12px;
     text-align:center;
-    line-height:1.1;
+    line-height:1.15;
     padding:14px;
     transform:rotate(-12deg);
     box-shadow:0 10px 30px -8px rgba(232,163,34,.5);
+    font-weight:600;
   }
 
   /* === STATS BAR === */
@@ -331,14 +377,14 @@
     color:var(--gold);
     line-height:1;
   }
+  .stat .num em{font-style:italic}
   .stat .label{
     font-size:11px; letter-spacing:.25em;
     text-transform:uppercase;
     color:rgba(244,213,137,.7);
   }
-  .stat .num em{font-style:italic}
 
-  /* === ABOUT === */
+  /* === SECTIONS === */
   .section{padding:120px 0; position:relative}
   .section-head{
     display:grid; grid-template-columns:.6fr 1fr;
@@ -362,7 +408,7 @@
   h2.section-title{
     font-family:'Fraunces', serif;
     font-weight:400;
-    font-size:clamp(38px, 4.5vw, 64px);
+    font-size:clamp(34px, 4.5vw, 64px);
     line-height:1;
     letter-spacing:-.015em;
     color:var(--navy);
@@ -376,7 +422,7 @@
     max-width:520px;
   }
 
-  /* About content */
+  /* === ABOUT === */
   .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -392,7 +438,6 @@
     padding-left:24px;
     margin-bottom:32px;
   }
-
   .connector-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -490,7 +535,6 @@
   }
   .vm-card .corner.tl{top:-1px; left:-1px; border-right:none; border-bottom:none}
   .vm-card .corner.br{bottom:-1px; right:-1px; border-left:none; border-top:none}
-
   .vm-icon{
     width:70px; height:70px;
     background:var(--gold);
@@ -510,10 +554,11 @@
   .vm-card h3{
     font-family:'Fraunces', serif;
     font-weight:400;
-    font-size:36px;
+    font-size:32px;
     color:var(--cream);
     margin-bottom:8px;
     letter-spacing:-.01em;
+    line-height:1.15;
   }
   .vm-card h3 em{font-style:italic; color:var(--gold)}
   .vm-card .vm-sub{
@@ -522,7 +567,7 @@
   }
   .vm-card p{
     font-family:'Cormorant Garamond', serif;
-    font-size:20px;
+    font-size:19px;
     line-height:1.55;
     color:rgba(251,247,238,.9);
   }
@@ -574,10 +619,7 @@
   .work-item p{font-size:14px; color:var(--muted); line-height:1.6}
 
   /* === VALUES === */
-  .values-section{
-    padding:140px 0;
-    position:relative;
-  }
+  .values-section{padding:140px 0; position:relative}
   .values-grid{
     display:grid;
     grid-template-columns:repeat(5, 1fr);
@@ -620,11 +662,11 @@
     line-height:1.55;
   }
 
-  /* === MEMORY HEROES === */
+  /* === MEMORY HEROES OLYMPIAD === */
   .mh-section{
     background:var(--navy-deep);
     color:var(--cream);
-    padding:140px 0;
+    padding:140px 0 0;
     position:relative;
     overflow:hidden;
   }
@@ -640,132 +682,287 @@
       radial-gradient(2px 2px at 30% 80%, var(--gold-soft) 1px, transparent 1px);
     background-size: auto, 200px 200px, 150px 150px, 250px 250px, 180px 180px;
     opacity:.4;
+    pointer-events:none;
   }
-  .mh-grid{
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:80px;
-    align-items:center;
-    position:relative;
-    z-index:2;
+  .mh-head{
+    text-align:center;
+    max-width:780px;
+    margin:0 auto 80px;
+    position:relative; z-index:2;
   }
-  .mh-section .section-label{color:var(--gold-bright); margin-bottom:24px}
-  .mh-section .section-label .num{color:var(--gold-soft)}
-  .mh-section h2.section-title{color:var(--cream); margin-bottom:24px}
-  .mh-section h2.section-title em{color:var(--gold)}
-  .mh-section .lede{color:rgba(251,247,238,.8); margin-bottom:40px; max-width:none}
+  .mh-head .section-label{
+    color:var(--gold-bright);
+    justify-content:center;
+    margin-bottom:24px;
+  }
+  .mh-head .section-label .num{color:var(--gold-soft)}
+  .mh-head h2.section-title{
+    color:var(--cream);
+    margin-bottom:20px;
+  }
+  .mh-head h2.section-title em{color:var(--gold)}
+  .mh-head .lede{
+    color:rgba(251,247,238,.8);
+    margin:0 auto;
+    max-width:620px;
+  }
 
-  .mh-skills{
+  .mh-olympiad{
+    position:relative; z-index:2;
+    background:linear-gradient(135deg, rgba(232,163,34,.06), rgba(11,31,77,.3));
+    border:1px solid rgba(232,163,34,.2);
+    border-radius:24px;
+    padding:50px;
+    margin-bottom:80px;
+  }
+  .mh-partners{
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:16px;
-    margin-bottom:40px;
+    grid-template-columns:1fr auto 1fr;
+    gap:40px;
+    align-items:center;
+    margin-bottom:50px;
+    padding-bottom:40px;
+    border-bottom:1px dashed rgba(232,163,34,.25);
   }
-  .mh-skill{
-    display:flex; align-items:center; gap:12px;
-    padding:14px 18px;
-    border:1px solid rgba(232,163,34,.25);
-    border-radius:999px;
-    background:rgba(232,163,34,.04);
-    transition:all .3s;
+  .partner{display:flex; flex-direction:column; gap:6px}
+  .partner.left{align-items:flex-start; text-align:left}
+  .partner.right{align-items:flex-end; text-align:right}
+  .partner .label{
+    font-size:10px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-weight:600;
   }
-  .mh-skill:hover{border-color:var(--gold); background:rgba(232,163,34,.1)}
-  .mh-skill .check{
-    width:20px; height:20px;
-    background:var(--gold);
+  .partner .name{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    color:var(--cream);
+    line-height:1.15;
+  }
+  .partner .name em{font-style:italic; color:var(--gold)}
+  .partner .sub{
+    font-size:11px;
+    color:rgba(244,213,137,.7);
+    font-style:italic;
+  }
+  .olympiad-crest{
+    width:130px; height:130px;
+    background:radial-gradient(circle, var(--gold) 0%, var(--gold-bright) 100%);
     border-radius:50%;
+    display:grid; place-items:center;
+    position:relative;
+    box-shadow:0 0 0 4px rgba(232,163,34,.2), 0 0 30px rgba(232,163,34,.3);
+  }
+  .olympiad-crest::before, .olympiad-crest::after{
+    content:"";
+    position:absolute;
+    background:var(--gold);
+    height:8px;
+    width:30px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .olympiad-crest::before{left:-26px; clip-path:polygon(0 0, 100% 50%, 0 100%, 30% 50%)}
+  .olympiad-crest::after{right:-26px; clip-path:polygon(100% 0, 0 50%, 100% 100%, 70% 50%)}
+  .olympiad-crest svg{width:60px; height:60px; fill:var(--navy)}
+
+  .mh-pillars{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+    margin-bottom:50px;
+  }
+  .mh-pillar{
+    text-align:center;
+    padding:24px 16px;
+  }
+  .mh-pillar-ico{
+    width:64px; height:64px;
+    background:rgba(232,163,34,.12);
+    border:1px solid rgba(232,163,34,.3);
+    border-radius:14px;
+    display:grid; place-items:center;
+    margin:0 auto 18px;
+  }
+  .mh-pillar-ico svg{width:30px; height:30px; fill:var(--gold)}
+  .mh-pillar h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:20px;
+    color:var(--cream);
+  }
+
+  .mh-counts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px dashed rgba(232,163,34,.25);
+    padding-top:40px;
+  }
+  .mh-count{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:0 20px;
+  }
+  .mh-count:first-child{border-right:1px solid rgba(232,163,34,.15)}
+  .mh-count-ico{
+    width:60px; height:60px;
+    background:var(--gold);
+    border-radius:12px;
     display:grid; place-items:center;
     flex-shrink:0;
   }
-  .mh-skill .check svg{width:10px; height:10px; fill:var(--navy)}
-  .mh-skill span{font-size:14px; color:var(--cream); font-weight:500}
+  .mh-count-ico svg{width:30px; height:30px; fill:var(--navy)}
+  .mh-count .num{
+    font-family:'Fraunces', serif;
+    font-size:38px;
+    color:var(--gold);
+    line-height:1;
+    font-weight:400;
+  }
+  .mh-count .label{
+    font-size:12px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:rgba(244,213,137,.7);
+    margin-top:4px;
+  }
 
-  .mh-visual{
+  /* Imagine If You Could section */
+  .mh-imagine{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+    align-items:center;
+    position:relative; z-index:2;
+    padding-bottom:140px;
+  }
+  .mh-imagine h3{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(30px, 3.5vw, 44px);
+    line-height:1.1;
+    color:var(--cream);
+    margin-bottom:30px;
+  }
+  .mh-imagine h3 em{font-style:italic; color:var(--gold)}
+  .mh-list{
+    list-style:none;
+    margin-bottom:36px;
+  }
+  .mh-list li{
+    display:flex; align-items:flex-start;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(232,163,34,.12);
+    font-size:16px;
+    color:rgba(251,247,238,.9);
+    line-height:1.5;
+  }
+  .mh-list li::before{
+    content:"";
+    width:18px; height:18px;
+    margin-top:3px;
+    flex-shrink:0;
+    background:var(--gold);
+    border-radius:50%;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b1f4d'><path d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>");
+    background-size:12px;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+  .mh-list li strong{color:var(--cream); font-weight:600}
+  .mh-now{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:var(--gold);
+    color:var(--navy);
+    padding:18px 30px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:all .3s;
+    box-shadow:0 10px 30px -10px rgba(232,163,34,.6);
+  }
+  .mh-now:hover{background:var(--cream); transform:translateY(-2px)}
+  .mh-now svg{width:16px; height:16px}
+
+  .mh-medal{
     position:relative;
     aspect-ratio:1;
-    max-width:440px;
+    max-width:380px;
     margin-left:auto;
   }
-  .mh-sphere{
+  .mh-medal-ring{
     position:absolute;
     inset:0;
     border-radius:50%;
     background:
-      radial-gradient(circle at 30% 30%, rgba(232,163,34,.3), transparent 60%),
-      radial-gradient(circle, var(--navy-soft), var(--navy-deep));
+      radial-gradient(circle at 30% 30%, var(--gold-bright), var(--gold) 60%, #b87f15);
     box-shadow:
-      inset 0 0 80px rgba(232,163,34,.2),
-      0 30px 80px -20px rgba(232,163,34,.3);
-    overflow:hidden;
+      inset 0 -20px 40px rgba(0,0,0,.3),
+      inset 0 20px 40px rgba(255,255,255,.2),
+      0 30px 80px -20px rgba(232,163,34,.5);
   }
-  .mh-sphere::before{
+  .mh-medal-ring::before{
     content:"";
     position:absolute;
     inset:30px;
-    border:1px dashed rgba(232,163,34,.3);
     border-radius:50%;
+    background:var(--navy-deep);
+    box-shadow:inset 0 0 30px rgba(232,163,34,.3);
   }
-  .mh-sphere::after{
+  .mh-medal-ring::after{
     content:"";
     position:absolute;
-    inset:80px;
-    border:1px solid rgba(232,163,34,.2);
+    inset:45px;
     border-radius:50%;
+    border:2px dashed rgba(232,163,34,.4);
   }
-  .mh-orbit{
+  .mh-medal-ribbon{
     position:absolute;
-    width:130%; height:130%;
-    top:-15%; left:-15%;
-    border:1px solid rgba(232,163,34,.15);
-    border-radius:50%;
-    animation:spin 30s linear infinite;
+    top:-40px; left:50%;
+    transform:translateX(-50%);
+    width:80px;
+    height:60px;
+    background:linear-gradient(to bottom, #c41e3a, #8b0000);
+    clip-path:polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    z-index:0;
   }
-  .mh-orbit::before{
-    content:"";
-    position:absolute;
-    top:-4px; left:50%;
-    width:8px; height:8px;
-    background:var(--gold);
-    border-radius:50%;
-    box-shadow:0 0 12px var(--gold);
-  }
-  @keyframes spin{to{transform:rotate(360deg)}}
-
-  .mh-center{
+  .mh-medal-content{
     position:absolute;
     inset:0;
     display:flex; flex-direction:column;
     align-items:center; justify-content:center;
     text-align:center;
-    color:var(--cream);
+    color:var(--gold);
     padding:60px;
+    z-index:2;
   }
-  .mh-center .icon{
-    width:80px; height:80px;
-    background:var(--gold);
-    border-radius:50%;
-    display:grid; place-items:center;
-    margin-bottom:20px;
-    box-shadow:0 0 0 2px rgba(232,163,34,.3), 0 0 30px rgba(232,163,34,.4);
-  }
-  .mh-center .icon svg{width:38px; height:38px; fill:var(--navy)}
-  .mh-center h4{
-    font-family:'Fraunces', serif;
-    font-weight:400;
-    font-size:32px;
-    line-height:1.1;
+  .mh-medal-content .top{
+    font-size:11px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
     margin-bottom:8px;
   }
-  .mh-center h4 em{font-style:italic; color:var(--gold)}
-  .mh-center .tag{
-    font-size:10px;
-    letter-spacing:.35em;
-    color:var(--gold-soft);
-    text-transform:uppercase;
+  .mh-medal-content h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.1;
+    color:var(--gold);
   }
+  .mh-medal-content h4 em{font-style:italic}
 
   /* === BENEFITS === */
-  .benefits-section{padding:140px 0}
+  .benefits-section{padding:140px 0; background:var(--cream)}
   .benefits-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -801,6 +998,56 @@
   }
   .benefit p{font-size:14px; color:var(--muted); line-height:1.6}
 
+  /* === BUILDING INDIA SECTION === */
+  .build-section{
+    background:linear-gradient(135deg, var(--navy), var(--navy-soft));
+    color:var(--cream);
+    padding:120px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .build-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(circle at 15% 50%, rgba(232,163,34,.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 50%, rgba(232,163,34,.1) 0%, transparent 45%);
+    pointer-events:none;
+  }
+  .build-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+    position:relative; z-index:2;
+  }
+  .build-text .section-label{color:var(--gold-bright)}
+  .build-text .section-label .num{color:var(--gold-soft)}
+  .build-text h2{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(34px, 4vw, 54px);
+    line-height:1.05;
+    color:var(--cream);
+    margin-bottom:30px;
+    letter-spacing:-.01em;
+  }
+  .build-text h2 em{font-style:italic; color:var(--gold)}
+  .build-text p{
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(251,247,238,.85);
+    margin-bottom:20px;
+  }
+  .build-stripes{
+    position:relative;
+    aspect-ratio:1;
+    max-width:440px;
+    margin-left:auto;
+  }
+  .build-stripes svg{width:100%; height:100%}
+
   /* === CTA === */
   .cta-section{
     background:linear-gradient(135deg, var(--navy), var(--navy-deep));
@@ -833,8 +1080,8 @@
   .cta-content h2{
     font-family:'Fraunces', serif;
     font-weight:300;
-    font-size:clamp(40px, 5vw, 70px);
-    line-height:1.05;
+    font-size:clamp(34px, 5vw, 64px);
+    line-height:1.1;
     color:var(--cream);
     margin-bottom:24px;
     letter-spacing:-.01em;
@@ -857,14 +1104,84 @@
   footer{
     background:var(--navy-deep);
     color:rgba(251,247,238,.7);
-    padding:80px 0 36px;
     position:relative;
+    overflow:hidden;
+  }
+  footer::before{
+    content:"";
+    position:absolute;
+    top:-200px; right:-200px;
+    width:500px; height:500px;
+    background:radial-gradient(circle, rgba(232,163,34,.08) 0%, transparent 60%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  footer::after{
+    content:"";
+    position:absolute;
+    bottom:-150px; left:-150px;
+    width:400px; height:400px;
+    background:radial-gradient(circle, rgba(232,163,34,.05) 0%, transparent 60%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+
+  /* Contact band on top of footer */
+  .footer-contact{
+    border-bottom:1px solid rgba(232,163,34,.18);
+    padding:36px 0;
+    position:relative; z-index:2;
+  }
+  .footer-contact .container{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+  }
+  .fc-item{
+    display:flex; align-items:center; gap:18px;
+  }
+  .fc-ico{
+    width:48px; height:48px;
+    border:1px solid rgba(232,163,34,.3);
+    background:rgba(232,163,34,.06);
+    border-radius:50%;
+    display:grid; place-items:center;
+    flex-shrink:0;
+    transition:all .3s;
+  }
+  .fc-item:hover .fc-ico{
+    background:var(--gold);
+    border-color:var(--gold);
+  }
+  .fc-ico svg{width:20px; height:20px; fill:var(--gold); transition:fill .3s}
+  .fc-item:hover .fc-ico svg{fill:var(--navy)}
+  .fc-text{display:flex; flex-direction:column; gap:2px; min-width:0}
+  .fc-text .lbl{
+    font-size:10px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+  .fc-text a, .fc-text span{
+    color:var(--cream);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    transition:color .3s;
+    word-break:break-word;
+  }
+  .fc-text a:hover{color:var(--gold)}
+
+  .footer-main{
+    padding:70px 0 36px;
+    position:relative; z-index:2;
   }
   .footer-grid{
     display:grid;
     grid-template-columns:1.4fr 1fr 1fr 1fr;
     gap:60px;
-    margin-bottom:60px;
+    margin-bottom:50px;
   }
   .footer-brand{display:flex; flex-direction:column; gap:20px}
   .footer-brand .brand{color:var(--cream)}
@@ -875,9 +1192,24 @@
     font-size:17px;
     font-style:italic;
     color:rgba(244,213,137,.8);
-    max-width:340px;
-    line-height:1.5;
+    max-width:360px;
+    line-height:1.55;
   }
+  .footer-tagline{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:11px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    margin-top:6px;
+  }
+  .footer-tagline::before{
+    content:"";
+    width:24px; height:1px;
+    background:var(--gold);
+  }
+
   .footer-col h5{
     font-size:11px;
     letter-spacing:.3em;
@@ -885,65 +1217,184 @@
     color:var(--gold);
     margin-bottom:22px;
     font-weight:600;
+    position:relative;
+    padding-bottom:14px;
+  }
+  .footer-col h5::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:24px; height:1px;
+    background:rgba(232,163,34,.4);
   }
   .footer-col ul{list-style:none}
-  .footer-col li{margin-bottom:10px}
+  .footer-col li{margin-bottom:12px}
   .footer-col a{
-    color:rgba(251,247,238,.65);
+    color:rgba(251,247,238,.7);
     text-decoration:none;
     font-size:14px;
     transition:all .3s;
     display:inline-flex; align-items:center; gap:8px;
+    position:relative;
+    padding-left:0;
   }
-  .footer-col a:hover{color:var(--gold)}
+  .footer-col a::before{
+    content:"→";
+    opacity:0;
+    margin-right:-12px;
+    transition:all .3s;
+    color:var(--gold);
+  }
+  .footer-col a:hover{color:var(--gold); padding-left:14px}
+  .footer-col a:hover::before{opacity:1; margin-right:0}
+
   .footer-bottom{
     border-top:1px solid rgba(232,163,34,.15);
     padding-top:30px;
     display:flex; justify-content:space-between;
-    align-items:center; flex-wrap:wrap; gap:16px;
+    align-items:center; flex-wrap:wrap; gap:20px;
     font-size:12px;
-    color:rgba(251,247,238,.4);
-    letter-spacing:.08em;
+    color:rgba(251,247,238,.45);
+    letter-spacing:.05em;
+    position:relative; z-index:2;
   }
-  .footer-bottom .socials{display:flex; gap:14px}
+  .footer-bottom .legal{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+  .footer-bottom .legal a{
+    color:rgba(251,247,238,.55);
+    text-decoration:none;
+    transition:color .3s;
+  }
+  .footer-bottom .legal a:hover{color:var(--gold)}
+  .footer-bottom .legal .sep{
+    width:3px; height:3px;
+    background:rgba(232,163,34,.4);
+    border-radius:50%;
+  }
+  .footer-bottom .socials{display:flex; gap:12px}
   .footer-bottom .socials a{
-    width:36px; height:36px;
+    width:38px; height:38px;
     border:1px solid rgba(232,163,34,.25);
     border-radius:50%;
     display:grid; place-items:center;
     color:var(--gold-soft);
     transition:all .3s;
   }
-  .footer-bottom .socials a:hover{background:var(--gold); color:var(--navy); border-color:var(--gold)}
-  .footer-bottom .socials svg{width:14px; height:14px; fill:currentColor}
+  .footer-bottom .socials a:hover{
+    background:var(--gold);
+    color:var(--navy);
+    border-color:var(--gold);
+    transform:translateY(-2px);
+  }
+  .footer-bottom .socials svg{width:15px; height:15px; fill:currentColor}
 
   /* Reveal anims */
   .reveal{opacity:0; transform:translateY(30px); transition:all 1s cubic-bezier(.2,.7,.3,1)}
   .reveal.in{opacity:1; transform:none}
 
-  /* Responsive */
+  /* === RESPONSIVE === */
   @media (max-width: 1024px){
     .container{padding:0 32px}
-    .hero-grid, .vm-grid, .mh-grid, .about-grid{grid-template-columns:1fr; gap:50px}
-    .hero-visual{margin:0 auto}
+    .hero-grid, .vm-grid, .about-grid, .build-grid, .mh-imagine{grid-template-columns:1fr; gap:50px}
+    .hero-visual, .build-stripes, .mh-medal{margin:0 auto}
     .section-head{grid-template-columns:1fr; gap:24px}
     .work-grid{grid-template-columns:repeat(2, 1fr)}
+    .mh-pillars{grid-template-columns:repeat(3, 1fr); gap:20px}
     .values-grid{grid-template-columns:repeat(2, 1fr); gap:32px}
     .value-pillar::after{display:none}
     .benefits-grid{grid-template-columns:1fr}
     .benefit:nth-child(odd){border-right:none}
     .stats-bar .container{grid-template-columns:repeat(2, 1fr); gap:24px}
     .footer-grid{grid-template-columns:1fr 1fr; gap:36px}
+    .footer-contact .container{grid-template-columns:1fr; gap:20px}
+    .mh-olympiad{padding:36px 28px}
+    .mh-partners{grid-template-columns:1fr; gap:24px; text-align:center}
+    .partner.left, .partner.right{align-items:center; text-align:center}
   }
+
+  @media (max-width: 768px){
+    /* Ribbon - clean 2-line stack */
+    .ribbon{font-size:10px; padding:10px 0; letter-spacing:.14em}
+    .ribbon .container{
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      text-align:center;
+    }
+    .ribbon .pills{justify-content:center}
+
+    /* Nav */
+    nav{padding:14px 0}
+    .nav-links{
+      display:none;
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--cream);
+      flex-direction:column;
+      align-items:stretch;
+      padding:24px;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      box-shadow:0 20px 40px -20px rgba(11,31,77,.15);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{
+      padding:14px 0;
+      border-bottom:1px solid var(--line);
+      font-size:13px;
+    }
+    .nav-links a:last-child{border-bottom:none}
+    .nav-links .cta-join{
+      text-align:center;
+      margin-top:12px;
+      padding:14px 22px;
+    }
+    .mobile-toggle{display:flex}
+
+    .brand-text b{font-size:19px}
+    .brand-text small{font-size:9px; letter-spacing:.2em}
+    .brand-logo{width:44px; height:44px}
+  }
+
   @media (max-width: 640px){
-    .container{padding:0 22px}
-    .nav-links{display:none}
-    .section, .values-section, .benefits-section, .mh-section, .cta-section{padding:80px 0}
+    .container{padding:0 20px}
+    .section, .values-section, .benefits-section, .mh-section, .cta-section, .build-section, .hero{padding:70px 0}
+    .mh-section{padding-top:70px}
+    .mh-imagine{padding-bottom:90px}
+    .section-head{margin-bottom:50px}
     .work-grid{grid-template-columns:1fr}
-    .values-grid{grid-template-columns:1fr 1fr}
-    .ribbon{font-size:10px}
-    .ribbon .container{justify-content:center}
-    .footer-grid{grid-template-columns:1fr}
+    .values-grid{grid-template-columns:1fr 1fr; gap:30px}
+    .mh-pillars{grid-template-columns:1fr; gap:16px}
+    .mh-counts{grid-template-columns:1fr; gap:24px; border-top:none}
+    .mh-count{padding:20px 16px; background:rgba(232,163,34,.05); border-radius:14px}
+    .mh-count:first-child{border-right:none}
+    .footer-grid{grid-template-columns:1fr; gap:36px}
+    .footer-main{padding:50px 0 30px}
+    .footer-bottom{flex-direction:column; align-items:flex-start; text-align:left}
+    .footer-bottom .legal{flex-wrap:wrap}
+    .hero{padding:50px 0 70px}
+    h1.display{font-size:46px}
+    .lede{font-size:18px}
+    .mh-olympiad{padding:28px 20px; border-radius:18px}
+    .olympiad-crest{width:100px; height:100px}
+    .olympiad-crest svg{width:46px; height:46px}
+    .olympiad-crest::before, .olympiad-crest::after{width:20px; height:6px}
+    .olympiad-crest::before{left:-18px}
+    .olympiad-crest::after{right:-18px}
+    .hero-actions{flex-direction:column; align-items:stretch; gap:14px}
+    .hero-actions .btn-primary, .hero-actions .btn-ghost{justify-content:center; text-align:center}
+    .btn-ghost{border-bottom:none; border:1px solid var(--navy); padding:18px 28px; border-radius:999px}
+    .cta-actions{flex-direction:column; align-items:stretch}
+    .cta-actions .btn-primary, .cta-actions .btn-ghost{justify-content:center}
+    .cta-section .btn-ghost{border:1px solid var(--gold-soft); border-radius:999px; padding:18px 28px}
+    .seal-content h3{font-size:26px}
+    .seal-logo{width:120px; height:120px}
+    .hero-stars{width:72px; height:72px; font-size:11px; padding:10px}
+    .mh-medal{max-width:280px}
+    .mh-medal-content h4{font-size:20px}
+    .build-text p{font-size:15px}
+    .benefit{padding:28px 18px; grid-template-columns:48px 1fr; gap:18px}
+    .benefit-num{font-size:26px}
+    .benefit h4{font-size:18px}
   }
 </style>
 </head>
@@ -954,7 +1405,12 @@
 <div class="ribbon">
   <div class="container">
     <span><span class="dot"></span> A National Movement for Holistic, Future-Ready Education</span>
-    <span>Schools <span class="dot"></span> Colleges <span class="dot"></span> Universities <span class="dot"></span> Coaching Institutes</span>
+    <span class="pills">
+      <span>Schools</span><span class="dot"></span>
+      <span>Colleges</span><span class="dot"></span>
+      <span>Universities</span><span class="dot"></span>
+      <span>Coaching Institutes</span>
+    </span>
   </div>
 </div>
 
@@ -962,21 +1418,24 @@
 <nav>
   <div class="container">
     <a href="#" class="brand">
-      <div class="brand-seal">
-        <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+      <div class="brand-logo">
+        <img src="assests/cfhed-logo.png" alt="CFHED logo">
       </div>
       <div class="brand-text">
         <b>CFHED</b>
         <small>Transforming Education</small>
       </div>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#vision">Vision</a>
       <a href="#work">What We Do</a>
-      <a href="#memory">Memory Heroes</a>
+      <a href="#olympiad">Olympiad</a>
       <a href="#join" class="cta-join">Join CFHED</a>
     </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -999,8 +1458,8 @@
       <div class="hero-visual reveal">
         <div class="hero-seal">
           <div class="seal-content">
-            <div class="seal-crest">
-              <svg viewBox="0 0 24 24"><path d="M12 2 9 9H2l5.5 4-2 7L12 16l6.5 4-2-7L22 9h-7z"/></svg>
+            <div class="seal-logo">
+              <img src="assests/cfhed-logo.png" alt="CFHED Official Logo">
             </div>
             <div class="label">Est. as a National Movement</div>
             <h3>India's only <em>holistic</em><br>school community</h3>
@@ -1017,20 +1476,20 @@
 <div class="stats-bar">
   <div class="container">
     <div class="stat">
-      <div class="num">04</div>
-      <div class="label">Institution Types</div>
+      <div class="num">70<em>+</em></div>
+      <div class="label">Partner Schools</div>
     </div>
     <div class="stat">
-      <div class="num">11<em>+</em></div>
+      <div class="num">90,000<em>+</em></div>
+      <div class="label">Students Reached</div>
+    </div>
+    <div class="stat">
+      <div class="num">09</div>
       <div class="label">Focus Areas</div>
     </div>
     <div class="stat">
       <div class="num">05</div>
       <div class="label">Core Values</div>
-    </div>
-    <div class="stat">
-      <div class="num">01</div>
-      <div class="label">National Vision</div>
     </div>
   </div>
 </div>
@@ -1236,39 +1695,100 @@
   </div>
 </section>
 
-<!-- MEMORY HEROES -->
-<section class="mh-section" id="memory">
+<!-- MEMORY HEROES OLYMPIAD -->
+<section class="mh-section" id="olympiad">
   <div class="container">
-    <div class="mh-grid">
-      <div class="reveal">
-        <div class="section-label"><span class="num">05 —</span> An Initiative of CFHED</div>
-        <h2 class="section-title">Memory <em>Heroes</em>.</h2>
-        <p class="lede">A brain development and cognitive excellence initiative designed to help students unlock their true learning potential — through scientifically inspired techniques, workshops and training sessions.</p>
+    <div class="mh-head reveal">
+      <div class="section-label"><span class="num">05 —</span> An Initiative of CFHED</div>
+      <h2 class="section-title">Memory Heroes <em>Olympiad</em>.</h2>
+      <p class="lede">India's biggest national-level memory olympiad — a brain development and cognitive excellence initiative helping students compete nationally, shine globally, and excel in academics and life.</p>
+    </div>
 
-        <div class="mh-skills">
-          <div class="mh-skill"><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span>Memory</span></div>
-          <div class="mh-skill"><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span>Learning Speed</span></div>
-          <div class="mh-skill"><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span>Focus</span></div>
-          <div class="mh-skill"><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span>Concentration</span></div>
-          <div class="mh-skill"><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span>Mental Performance</span></div>
-          <div class="mh-skill"><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span>Confidence</span></div>
+    <!-- Olympiad Card -->
+    <div class="mh-olympiad reveal">
+      <div class="mh-partners">
+        <div class="partner left">
+          <span class="label">Powered By</span>
+          <span class="name">Smriti <em>Gurukul</em></span>
+          <span class="sub">for Memory and Mindfulness</span>
         </div>
+        <div class="olympiad-crest">
+          <svg viewBox="0 0 24 24"><path d="M7 4V2h10v2h5v3c0 2.21-1.79 4-4 4h-.18A7.003 7.003 0 0 1 13 16.92V19h4v3H7v-3h4v-2.08A7.003 7.003 0 0 1 6.18 13H6c-2.21 0-4-1.79-4-4V4zM4 6v3c0 1.1.9 2 2 2V6zm14 5c1.1 0 2-.9 2-2V6h-2z"/></svg>
+        </div>
+        <div class="partner right">
+          <span class="label">In Association With</span>
+          <span class="name">CFHED</span>
+          <span class="sub">Confederation for Holistic Education & Development</span>
+        </div>
+      </div>
 
-        <a href="#join" class="btn-primary" style="background:var(--gold); color:var(--navy)">
-          Bring Memory Heroes to Your Institution
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      <div class="mh-pillars">
+        <div class="mh-pillar">
+          <div class="mh-pillar-ico">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <h4>Compete Nationally</h4>
+        </div>
+        <div class="mh-pillar">
+          <div class="mh-pillar-ico">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39"/></svg>
+          </div>
+          <h4>Shine Globally</h4>
+        </div>
+        <div class="mh-pillar">
+          <div class="mh-pillar-ico">
+            <svg viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.69 1.69 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.16-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.105 4.105 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.18-2.82 3.96-2.82.32 0 .64.04.95.11C9.32 2.4 10.59 2 11.83 2c1.78-.04 3.5.7 4.7 2.02a4.728 4.728 0 0 1 3.74 4.55c.51.81.78 1.76.78 2.72.04.62-.05 1.24-.27 1.83"/></svg>
+          </div>
+          <h4>Excel in Academics & Life</h4>
+        </div>
+      </div>
+
+      <div class="mh-counts">
+        <div class="mh-count">
+          <div class="mh-count-ico">
+            <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+          </div>
+          <div>
+            <div class="num">70+</div>
+            <div class="label">Schools</div>
+          </div>
+        </div>
+        <div class="mh-count">
+          <div class="mh-count-ico">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4"/></svg>
+          </div>
+          <div>
+            <div class="num">90,000+</div>
+            <div class="label">Students</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagine If You Could -->
+    <div class="mh-imagine">
+      <div class="reveal">
+        <h3><em>Imagine</em> if you could…</h3>
+        <ul class="mh-list">
+          <li><span><strong>Memorise science concepts</strong> in minutes — not hours</span></li>
+          <li><span><strong>Learn long answers once</strong> and never forget them</span></li>
+          <li><span><strong>Solve maths without fear</strong> — with speed and confidence</span></li>
+          <li><span><strong>Recall definitions instantly</strong> during exams</span></li>
+          <li><span><strong>Memorise faster</strong> and perform better in all subjects</span></li>
+          <li><span><strong>Answer confidently</strong> in class and exams</span></li>
+        </ul>
+        <a href="#join" class="mh-now">
+          Now You Can
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
 
-      <div class="mh-visual reveal">
-        <div class="mh-sphere"></div>
-        <div class="mh-orbit"></div>
-        <div class="mh-center">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.69 1.69 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.16-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.105 4.105 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.18-2.82 3.96-2.82.32 0 .64.04.95.11C9.32 2.4 10.59 2 11.83 2c1.78-.04 3.5.7 4.7 2.02a4.728 4.728 0 0 1 3.74 4.55c.51.81.78 1.76.78 2.72.04.62-.05 1.24-.27 1.83"/></svg>
-          </div>
-          <h4>Unlock <em>true</em><br>learning potential</h4>
-          <div class="tag">Cognitive Excellence</div>
+      <div class="mh-medal reveal">
+        <div class="mh-medal-ribbon"></div>
+        <div class="mh-medal-ring"></div>
+        <div class="mh-medal-content">
+          <div class="top">India's Biggest</div>
+          <h4>National Level<br><em>Memory</em><br>Olympiad</h4>
         </div>
       </div>
     </div>
@@ -1289,7 +1809,7 @@
     <div class="benefits-grid reveal">
       <div class="benefit">
         <div class="benefit-num">01</div>
-        <div><h4>National Educational Network</h4><p>Connect with educational leaders and institutions across India.</p></div>
+        <div><h4>National Educational Network</h4><p>Connect with educators, leaders and institutions across India.</p></div>
       </div>
       <div class="benefit">
         <div class="benefit-num">02</div>
@@ -1323,19 +1843,77 @@
   </div>
 </section>
 
+<!-- BUILDING INDIA'S FUTURE -->
+<section class="build-section">
+  <div class="container">
+    <div class="build-grid">
+      <div class="build-text reveal">
+        <div class="section-label"><span class="num">07 —</span> Building India's Future</div>
+        <h2>Through holistic <em>education</em>.</h2>
+        <p>CFHED is committed to creating an educational ecosystem where institutions collaborate to nurture future generations with knowledge, innovation, leadership and strong human values.</p>
+        <p>Become a part of India's growing network of future-ready educational institutions — and help shape the country's next generation of thinkers, leaders and changemakers.</p>
+      </div>
+
+      <div class="build-stripes reveal">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#e8a322" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#e8a322" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="mapGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f5b836"/>
+              <stop offset="100%" stop-color="#e8a322"/>
+            </linearGradient>
+          </defs>
+          <circle cx="200" cy="200" r="190" fill="url(#bgGrad)"/>
+          <circle cx="200" cy="200" r="160" fill="none" stroke="#e8a322" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+          <circle cx="200" cy="200" r="120" fill="none" stroke="#e8a322" stroke-opacity="0.1"/>
+          <!-- Stylized India map dots -->
+          <g fill="url(#mapGrad)">
+            <circle cx="180" cy="100" r="3"/><circle cx="200" cy="105" r="3"/><circle cx="220" cy="110" r="3"/>
+            <circle cx="160" cy="125" r="3"/><circle cx="185" cy="130" r="3"/><circle cx="210" cy="125" r="3"/><circle cx="235" cy="130" r="3"/>
+            <circle cx="155" cy="150" r="3"/><circle cx="180" cy="155" r="3"/><circle cx="205" cy="150" r="3"/><circle cx="230" cy="155" r="3"/><circle cx="250" cy="150" r="3"/>
+            <circle cx="150" cy="175" r="3"/><circle cx="175" cy="180" r="3"/><circle cx="200" cy="175" r="3"/><circle cx="225" cy="180" r="3"/><circle cx="245" cy="175" r="3"/>
+            <circle cx="155" cy="200" r="3"/><circle cx="180" cy="205" r="3"/><circle cx="205" cy="200" r="3"/><circle cx="230" cy="205" r="3"/><circle cx="245" cy="200" r="3"/>
+            <circle cx="165" cy="225" r="3"/><circle cx="190" cy="230" r="3"/><circle cx="215" cy="225" r="3"/><circle cx="235" cy="230" r="3"/>
+            <circle cx="170" cy="250" r="3"/><circle cx="195" cy="255" r="3"/><circle cx="215" cy="250" r="3"/><circle cx="225" cy="245" r="3"/>
+            <circle cx="180" cy="275" r="3"/><circle cx="200" cy="280" r="3"/><circle cx="215" cy="275" r="3"/>
+            <circle cx="190" cy="300" r="3"/><circle cx="205" cy="305" r="3"/>
+          </g>
+          <!-- Flag pole -->
+          <line x1="270" y1="100" x2="270" y2="200" stroke="#fbf7ee" stroke-width="2"/>
+          <path d="M 270 100 L 320 110 L 320 130 L 270 140 Z" fill="#e8a322"/>
+          <!-- Central emblem -->
+          <g transform="translate(200, 200)">
+            <circle r="35" fill="#0b1f4d" stroke="#e8a322" stroke-width="2"/>
+            <text y="6" text-anchor="middle" fill="#e8a322" font-family="Fraunces, serif" font-size="22" font-style="italic" font-weight="500">India</text>
+          </g>
+          <!-- Stars around -->
+          <g fill="#f5b836">
+            <path d="M 100 200 l 4 12 l 12 0 l -10 7 l 4 12 l -10 -7 l -10 7 l 4 -12 l -10 -7 l 12 0 z"/>
+            <path d="M 310 250 l 3 9 l 9 0 l -7 5 l 3 9 l -8 -5 l -7 5 l 3 -9 l -7 -5 l 9 0 z"/>
+            <path d="M 60 100 l 2 6 l 6 0 l -5 4 l 2 6 l -5 -3 l -5 3 l 2 -6 l -5 -4 l 6 0 z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="join">
   <div class="container">
     <div class="cta-content reveal">
       <div class="eyebrow"><span class="line"></span> Join the National Educational Movement <span class="line"></span></div>
       <h2>Together, let's build a stronger,<br>future-ready and <em>value-driven</em><br>educational ecosystem for India.</h2>
-      <p>"Education is the most powerful weapon which you can use to change the world." — Nelson Mandela</p>
+      <p>"Education is the most powerful weapon which you can use to change the world."</p>
       <div class="cta-actions">
-        <a href="mailto:info@holisticinstitutions.org" class="btn-primary">
+        <a href="mailto:info@katalochfhedindia.org" class="btn-primary">
           Become a Founding Member
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="tel:9873151403" class="btn-ghost">Call 9873151403</a>
+        <a href="tel:9873151403" class="btn-ghost">Call +91 98731 51403</a>
       </div>
     </div>
   </div>
@@ -1343,71 +1921,136 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="brand">
-          <div class="brand-seal">
-            <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
-          </div>
-          <div class="brand-text">
-            <b>CFHED</b>
-            <small>Transforming Education</small>
-          </div>
-        </a>
-        <p>Confederation for Holistic Education & Development — a national association connecting educational institutions, educators and innovators to promote holistic, future-ready and value-based education across India.</p>
-      </div>
-
-      <div class="footer-col">
-        <h5>Explore</h5>
-        <ul>
-          <li><a href="#about">About CFHED</a></li>
-          <li><a href="#vision">Vision & Mission</a></li>
-          <li><a href="#work">What We Do</a></li>
-          <li><a href="#memory">Memory Heroes</a></li>
-          <li><a href="#join">Membership</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Members</h5>
-        <ul>
-          <li><a href="#">Schools</a></li>
-          <li><a href="#">Colleges</a></li>
-          <li><a href="#">Universities</a></li>
-          <li><a href="#">Coaching Institutes</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="tel:9873151403">+91 98731 51403</a></li>
-          <li><a href="mailto:info@holisticinstitutions.org">info@holisticinstitutions.org</a></li>
-          <li><a href="https://www.holisticinstitutions.org">www.holisticinstitutions.org</a></li>
-          <li><a href="#">@C.F.H.E.D</a></li>
-        </ul>
-      </div>
+  <!-- Contact band -->
+  <div class="footer-contact">
+    <div class="container">
+      <a href="tel:9873151403" class="fc-item">
+        <div class="fc-ico">
+          <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.07 15.07 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+        </div>
+        <div class="fc-text">
+          <span class="lbl">Call Us</span>
+          <span>+91 98731 51403</span>
+        </div>
+      </a>
+      <a href="mailto:info@katalochfhedindia.org" class="fc-item">
+        <div class="fc-ico">
+          <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0-8 5-8-5zm0 12H4V8l8 5 8-5z"/></svg>
+        </div>
+        <div class="fc-text">
+          <span class="lbl">Email Us</span>
+          <span>info@katalochfhedindia.org</span>
+        </div>
+      </a>
+      <a href="https://www.katalochfhedindia.org" target="_blank" rel="noopener" class="fc-item">
+        <div class="fc-ico">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M18.92 8h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8M12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96M4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16m2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8M12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96M14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2m.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2z"/></svg>
+        </div>
+        <div class="fc-text">
+          <span class="lbl">Visit Us</span>
+          <span>www.katalochfhedindia.org</span>
+        </div>
+      </a>
     </div>
+  </div>
 
-    <div class="footer-bottom">
-      <div>© 2025 Confederation for Holistic Education & Development. All rights reserved.</div>
-      <div class="socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55-.79.31-1.46.72-2.13 1.38C1.34 2.68.93 3.35.62 4.14.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.39.76.29 1.63.49 2.91.55 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55.79-.31 1.46-.72 2.13-1.39a5.86 5.86 0 0 0 1.38-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91A5.86 5.86 0 0 0 21.32 2A5.86 5.86 0 0 0 19.19.62C18.43.33 17.56.13 16.28.07 15 .01 14.59 0 12 0z"/><path d="M12 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12M7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0"/></svg></a>
-        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0-8 5-8-5zm0 12H4V8l8 5 8-5z"/></svg></a>
+  <!-- Main footer -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <div class="brand-logo">
+              <img src="assests/cfhed-logo.png" alt="CFHED logo">
+            </div>
+            <div class="brand-text">
+              <b>CFHED</b>
+              <small>Transforming Education</small>
+            </div>
+          </a>
+          <p>A national association connecting educational institutions, educators and innovators to promote holistic, future-ready and value-based education across India.</p>
+          <div class="footer-tagline">Building India's Future</div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="#about">About CFHED</a></li>
+            <li><a href="#vision">Vision & Mission</a></li>
+            <li><a href="#work">What We Do</a></li>
+            <li><a href="#olympiad">Memory Heroes Olympiad</a></li>
+            <li><a href="#join">Membership</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Members</h5>
+          <ul>
+            <li><a href="#join">Schools</a></li>
+            <li><a href="#join">Colleges</a></li>
+            <li><a href="#join">Universities</a></li>
+            <li><a href="#join">Coaching Institutes</a></li>
+            <li><a href="#join">Educators</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Get Involved</h5>
+          <ul>
+            <li><a href="#join">Become a Member</a></li>
+            <li><a href="#olympiad">Host Olympiad</a></li>
+            <li><a href="#work">Partner With Us</a></li>
+            <li><a href="mailto:info@katalochfhedindia.org">Media Inquiries</a></li>
+            <li><a href="mailto:info@katalochfhedindia.org">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="legal">
+          <span>© 2025 CFHED</span>
+          <span class="sep"></span>
+          <a href="#">Privacy Policy</a>
+          <span class="sep"></span>
+          <a href="#">Terms of Use</a>
+          <span class="sep"></span>
+          <span>All rights reserved.</span>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55-.79.31-1.46.72-2.13 1.38C1.34 2.68.93 3.35.62 4.14.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.39.76.29 1.63.49 2.91.55 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55.79-.31 1.46-.72 2.13-1.39a5.86 5.86 0 0 0 1.38-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91A5.86 5.86 0 0 0 21.32 2A5.86 5.86 0 0 0 19.19.62C18.43.33 17.56.13 16.28.07 15 .01 14.59 0 12 0z"/><path d="M12 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12M7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"/></svg></a>
+          <a href="https://wa.me/919873151403" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.7-1.4-1.7-1.6-2-.2-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-1-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.4 4.7.7.3 1.3.5 1.8.6.8.3 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.3-.7.3-1.2.2-1.4-.1-.1-.2-.2-.5-.4M12 22a10 10 0 0 1-5.1-1.4L2 22l1.5-4.7A10 10 0 1 1 12 22m0-18a8 8 0 0 0-6.8 12.2l.3.5-.9 2.8 2.9-.8.5.3a8 8 0 0 0 12-7 8 8 0 0 0-8-8"/></svg></a>
+          <a href="mailto:info@katalochfhedindia.org" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0-8 5-8-5zm0 12H4V8l8 5 8-5z"/></svg></a>
+        </div>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
+  // Reveal on scroll
   const io = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
     });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', ()=>{
+    toggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+  // Close menu on link click
+  navLinks.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      toggle.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
 </script>
 </body>
 </html>
